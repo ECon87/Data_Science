@@ -1,0 +1,65 @@
+#+title: Notes
+
+* Using XGBoost to predict/forecast time series
+Import python file
+
+* How to Backtest Machine Leanring Models for Time Forecasting [[https://machinelearningmastery.com/backtest-machine-learning-models-time-series-forecasting/][link]]
+
+Given the temporal relationship of time-series, we *cannot employ* /k-fold/ cross validation and the standard /train-test-split/ since these methdos ignored the aforementioned temporal structural, and thus these methods do not work for time series data. This lecture emphasizes techniques that we can use instead.
+
+After completing this tutorial, we should know:
+- The limitations of traditional methods of model evaluation from machine learning adn why evaluating models on out of sample data is required.
+- How to create train-test splits and multiple train-test splits of time series data for model evaluation in Python.
+- How walk-forward validation provideds the most realistic evaluation of machine learning models on time series data.
+
+
+** Model Evaluation
+Model evaluation needs to should not be performed on the train data.
+- A model that remembered the timestamps and value for each observation would achive perfect performance.
+
+For this reason we want to have a holdout sample to peform an out-of-sample predcitions and test their performances. In applied machine learning, we split data into train and test sets; the training set is used to prepare the model, and the test set is used to evaluate it.
+- These methods cannot be directly used with time series data since those methods assume that there is no relationship between the observations--i.e., each observation is independent, which is not true with time series data.
+Instead, we must split the data up and respect the temporal order in which values were observed.
+
+In time series forecasting, this evaluation models on historical data is called backtesting. Look at three different methods to backtest a machine learning model on time series problems:
+1. Train-test split that respects the temporal order of observations.
+2. Multiple train-test splits that respect the temporal order of observations.
+3. Walk-forward validation where a model may be updated each time step new data is received.
+
+
+* Smoothing Noisy Data (w/ Python)
+
+** Medium article on the Savitzy-Golay (Savgol) filter [[https://python.plainenglish.io/my-favorite-way-to-smooth-noisy-data-with-python-bd28abe4b7d0][link]]
+Consider the case where $y_{\text{measured}} = y_{\text{signal}} + y_{\text{noise}}$
+
+Highlight the Savitzy-Golay (Savgol) filter, which is a simple filter for removing noise. It is an intuitive, easy to use and allows us to compute the derivative of the noisy data as we filter it.
+
+The filter works by looping over each invidual datapoint in the measured data array to produce a corresponding filtered output datapoint. [Useful diagrmas shown] For any given datapoint (datapoint k for example), a window/subset of the data is selected around the datapoint. A polynomial is then fit through this window of data and the corresponding filtered output datapoint is computed by evaluating the best-fit polynomial at time tk (time of input datapoint k). The proces is repeated for all datapoints. Essentially we get a window that slides along the dataset and smmoths the data by repeatedly curve-fititng and evaluating a polynomial. The graph from [[https://en.wikipedia.org/wiki/Savitzky%E2%80%93Golay_filter][Wikipedia]] illustrates the concept cleanly and intuitively.
+
+To obtain the derivate of the noisy data, for each step in the algorithm in the previous paragraph, we compute the coefficients of the best-fit polynomial to a subset of data. To get an approximation for the derivative of our noisy data, instead of only evaluating the best-fit polynomial, we can also differentiate the polynomial (analytically), and then evaluate the resulting derivative polynomial as well. This way, we get both filtered data, and an estimate of the derivative of our data.
+
+Key issues that to resolve:
+- How do we deal with data points at the end of the measured data array (i.e., the first and/or last datapoint) where we cannot select a window centered around a datapoint?
+- One possible soluton involves padding the ends of the array with additional values (i.e., artificially increasing the length of the array). These padded values could be constant (and equal to the first/last values in the data array), or could be extrapolated from data within the measured dataset.
+
+#+begin_src python
+#+end_src
+
+
+
+* Business/application perspective
+** Forecast Multiple Time Series Like a Master [[https://towardsdatascience.com/forecast-multiple-time-series-like-a-master-1579a2b6f18d][Towardsdatascience article]]
+
+- Intro to Darts - a python library for time series analysis that it's similar in spirit to scikit-learn
+- Interesting exposition using Walmart data and the power of Darts to handle multiple time series
+  - Kaggle competition data, so might be nice to do the competition
+
+
+The article focuses on forecasting multiple time series.
+
+
+** Sell out in sell in forecasting [[https://towardsdatascience.com/sell-out-sell-in-forecasting-45637005d6ee][Towardsdatascience article]]
+
+** End-to-end time-series analysis and forecasting: a Trio of SARIMAX, LSTM and Prophet
+- [[https://medium.com/towards-data-science/end-to-end-time-series-analysis-and-forecasting-a-trio-of-sarimax-lstm-and-prophet-part-1-306367e57db8][Part 1]]
+- [[https://medium.com/@minhsonle199/end-to-end-time-series-analysis-and-forecasting-a-trio-of-sarimax-lstm-and-prophet-part-2-4ca0046073ab][Part 2]]
