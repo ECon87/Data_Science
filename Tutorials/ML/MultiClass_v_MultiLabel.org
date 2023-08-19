@@ -1,0 +1,33 @@
+#+TITLE: MultiClass_v_MultiLabel
+
+* Introduction
+  - Multi-Class: Mutually exclusive classes. For example, pg-13.
+    - Since we have mutually exclusive classes, all classifiers in scilkit-learn can
+      do multi-class classification out of the box [[https://scikit-learn.org/stable/modules/multiclass.html#multiclass-classification][link]].
+  - Multi-Labels: Set of target variables. An object can have multiple labels.
+    For example, comedy-drama movie labels.
+
+* Machine Learning for Multi-labeling
+There are different algorithms:
+1. Problem Transformation (main).
+2. Adapted Algorithm (scikit-multilearn).
+3. Ensemble Approaches (scikit-multilearn).
+** Problem Transformation
+*** Binary (One classifier per target)
+    - MultiOutputClassifier scikit-learn seems to be doing this but you can pass any classifier (including ensemble).
+    - I am not sure if passing an ensemble classifier is equivalent to the adapted algorithms/ensemble methods of scikit-multilearn.
+    - [[https://scikit-learn.org/stable/modules/multiclass.html#multilabel-classification][link]]
+*** Classifier Chains
+*** Label Powerset (seems equivalent to multi-class).
+** Adapted Algorithm
+  Adapts the machine learning algorithm (e.g., K-Nearest Neighbors) to directly perform multi-label classification.
+  See [[http://scikit.ml/api/skmultilearn.html][scikit-multilearn API]]
+** Ensemble Approaches
+   Adaptations of ensemble methods.
+  See [[http://scikit.ml/api/skmultilearn.html][scikit-multilearn API]]
+** Links
+*** Older Packages: scikit-learn and scikit-multilearn [[https://www.analyticsvidhya.com/blog/2017/08/introduction-to-multi-label-classification/][link]]
+*** Packages: scikit-learn [[https://scikit-learn.org/stable/modules/multiclass.html#multilabel-classification][link 1]] [[https://scikit-learn.org/stable/modules/generated/sklearn.multioutput.MultiOutputClassifier.html#sklearn.multioutput.MultiOutputClassifier][link 2]]
+
+* Deep Learning
+** Keras [[https://stackabuse.com/python-for-nlp-multi-label-text-classification-with-keras/][link]]
