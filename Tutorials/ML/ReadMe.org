@@ -1,0 +1,421 @@
+#+TITLE: Notes on Machine Learning and Natural Language Processing
+
+* Machine Learning
+** A tour of machine learning algorithms
+[[https://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/][Source: Machine Learning Mastery]]
+
+Two ways to think and categorized the algorithms you may come across in the field:
+1. Grouping algorithms by their _*learning style*_.
+2. Grouping algorithms by their _*similarity*_ in form of function.
+
+
+*** Algorithms Grouped by Learning Style
+
+The three main learning styles in machine learning algorithms
+
+1. _Supervised Learning_
+   Input data is called training data and has a known label or result such as spam/not-spam or a stock price at a time.
+   A model is prepared through a training process in which it is required to make predictions and is corrected whenthsoe predictions are wrong. The training process continues until the model achieves a desired level of accuracy on the training data.
+   Examples problems: classification and regression.
+   Example algorithms: Logistic regression and the Back Propagation Neural Network.
+2. _Unsupervised Learning_
+   Input data is not labeled and does not have a known result.
+   A model is prepared by deducing structures present in the input data. This may be to extract general rules. It may be through a mathematical process to systematically reduce redunancy, or it may be to organize data by similarity.
+   Examples  problems: clustering, dimensionality reduction and association rule learning
+   Example algorithms include: the Apriori algorithm and K-means.
+3. _Semi-supervised learning_
+   Input data is a mixture of labeled and unlabelled examples.
+   There is a desired prediction problem but the model must learn the structures to organize the data as well as make predictions.
+   Example problems: classification and regression.
+   Example algorithms: extensions to other flexible models that make assumptions about how to model the unlabelled data.
+   Hot topic in areas such as image classification where there are a large datasets with very few labeled examples.
+
+
+*** Algorithms Grouped by Similarity
+
+**** Regression Algorithms
+The most popular methods are:
+- Ordinary Least Squares Regression (OLSR)
+- Linear Regression
+- Logistic Regression
+- Stepwise Regression
+- Multivariate Adaptive Regression Splines (MARS)
+- Locally Estimated Scatterplot Smoothing (LOESS)
+**** Instance-based Algorithms
+Instance-based learning model is decision problem with instances or examples of training data that are deemed important or required to the model.
+Such methods build a database of example data and compare new data to the database using a similarity measure in order to find the best match and make a prediction. For this reason, instance-based methods are also called winner-take-all methods and memory-based learning. Focus is put on the representation of the stored instances and similarity measures used between instances.
+- k-Nearest Neighbor (kNN)
+- Learning Vector Quantization (LVQ)
+- Self-Organizing Map (SOM)
+- Locally Weighted Learning (LWL)
+- Support Vector Machines (SVM)
+**** Regularization Algorithms
+Extension to other methods (typically regression methods) that penalizes models based on their complexity, favoring simpler models that are also better at generalizing.
+
+The most popular regularization algorithms are:
+- Ridge Regression
+- Least Absolute Shrinkage and Selection Operator (LASSO)
+- Elastic Net
+- Least-Angle Regression (LARS)
+
+**** Decision Tree Algorithms
+Decision tree methods construct a model of decisions made based on actual values of attributes in the data. Decisions fork in tree structures until a prediction decision is made for a given record. Decision trees are trained on data for classficiation and regression problems. Decision trees are often fast and accurate and a big favorite in machine learning.
+
+The most popular decision tree algorithms are:
+- Classification and Regression (CART)
+- Iterative Dichomotiser 3 (ID3)
+- C4.5 and C5.0 (different versions of a powerful approach)
+- Chi-squared Automatic Interaction Detection (CHAID)
+- Decision Stump
+- M5
+- Conditional Decision Trees
+
+
+**** Bayesian Algorithms
+Methods that explicity apply Bayes' Theorem for classification and regression problems.
+
+The most popular Bayesian algorithms are:
+- Naive Bayes
+- Gaussian Naive Bayes
+- Multinomial Naive Bayes
+- Averaged One-Dependence Estimators (AODE)
+- Bayesian Belief Network (BBN)
+- Bayesian Network (BN)
+
+
+**** Clustering Algorithms
+Clustering, like regressions, descrivves the class of problem and the class of methods.
+
+There are two main modeling approaches for clustering: centroid-based and hierarchical. All methods use the inherent structures in the data to best organize the data into groups of maximum commonality.
+
+The most popular clustering algorithms are:
+- k-Means
+- k-Medians
+- Expectation Maximisation (EM)
+- Hierachical Clustering
+
+
+**** Association Rule Learning Algorithms
+
+These methdos extract rules that best explain observed relationships between variables in data. They discover important and commercially useful assocaitions in large multi-dimensional datasets that can be exploited by an organization.
+
+The most popular association rule learning algorithms are:
+- Apriori algorithm
+- Eclat algorithm
+
+
+**** Artificial Neural Network Algorithms
+ANN are models that are inspired by the structure and/or function of biological neural networks. They are a class of pattern matching, commonly used for regression and classification problems, but are really an enormous subfield comprised of hundreds of algorithms and variations for all manner of problem types.
+
+The most popular ANN algorithms are:
+- Perceptron
+- Multilayer Perceptors (MLP)
+- Back-Propagation
+- Stochastic Gradient Descent
+- Hopfield Network
+- Radial Basis Function Network (RBFN)
+
+
+**** Deep Learning Algorithms
+Deep learning methods are a modern update to ANN that explot cheap computation. They build larger and more complex neural networks, and many methods are concerned with very large datasets of labelled analog data, such as image, text, audio and video.
+
+The most popular deep learning algorithms are:
+- Convolutional Neural Network (CNN)
+- Recurrent Neural Netorks (RNNs)
+- Long Short-Term Memory Networks (LSTMs)
+- Stacked Auto-Encoders
+- Depep Boltzmann Machine (DBM)
+- Deep Belief Networks (DBN)
+
+
+
+**** Dimensionality Reduction Algorithms
+Similar to clustering methods, dimensionality reduction exploit the inherent structure in the data, but in this case in an unsupervised manner or in order to summarize or descrive data using less information.
+
+Useful methods to visualize data or simplify data which can then be used in a supervised learning method. Many of these methods can be adapted for use in classification and regression.
+
+The most popular algorithms of this class are:
+- Principal Component Aanalysis (PCA)
+- Principal Component Regression (PCR)
+- Partial Least Squares Regression (PLSR)
+- Sammon Mapping
+- Multidimensional Scaling (MDS)
+- Projection Pursuit
+- Linear Discriminant Analysis (LDA)
+- Mixture Discriminant Analysis (MDA)
+- Quadratic Discriminant Analysis (QDA)
+- Flexible Discriminant Analysis (FDA)
+
+
+**** Ensemble Algorithms
+Ensemble methdos are models composed of multiple *weaker models* that are independenlty trained and whose predictions are combined in some way to make the overall prediction. This is a powerful class of techniques.
+- Boosting
+- Boostrapped Aggregation (Bagging)
+- AdaBoost
+- Weighted Average (Blending)
+- Stacked Generalization (Stacking)
+- Gradient Boosting Machines (GBM)
+- Gradient Boosted Regression Trees (GBRT)
+- Random Forest
+
+**** Other Machine Learning Algorithms
+
+- Feature selection algorithms
+- Algorithm accuracy evaluation
+- Peformance measures
+- Optimzation algorithms
+
+* Further Reading on Machine Learning Algorithms
+
+**** Other lists of machine learning algorithms
+
+- [[https://en.wikipedia.org/wiki/List_of_machine_learning_algorithms][Wikepdia list of machine learning algorithms]] - extensive but not useful presentation
+- [[https://en.wikipedia.org/wiki/Category:Machine_learning_algorithms][Wikipedia categorized list of machine learning algorithms]]
+- [[http://cran.r-project.org/web/views/MachineLearning.html][CRAN Task View: Machine Learning & Statistical Learning]] - list of all packages and supported algorithms
+- [[https://amzn.to/30U9Wlh][Top-10 Algorithms in Data Mining]]
+
+
+**** How to study machine learning algorithms
+- [[https://machinelearningmastery.com/how-to-learn-a-machine-learning-algorithm/][How to Learn Any Machine Learning Algorithm]] - Systematic approach that helps to understand any algorithm using /algorithm decription templates/
+- [[https://machinelearningmastery.com/create-lists-of-machine-learning-algorithms/][How to create targeted lists of machine learning algorithms]] - help create own systematic lists of machine learning algorithms to jump start work on your next machine learning problem
+- [[https://machinelearningmastery.com/how-to-research-a-machine-learning-algorithm/][How to reseach a machine learning algorithms]] - systematic approach to research machine learning algorithms
+- [[https://machinelearningmastery.com/how-to-investigate-machine-learning-algorithm-behavior/][How to investigate machine learning algorithm behavior]] - a methodoliogy to understand how machine learning algorithms work by creating and executing very small studies into their behavior
+- [[https://machinelearningmastery.com/how-to-implement-a-machine-learning-algorithm/][How to implement a machine learning algorithm]] - A process and tips/tricks for implementing machine learning algorithms from scratch
+
+****  How to run machine learning algorithms
+- [[https://machinelearningmastery.com/how-to-get-started-with-machine-learning-algorithms-in-r/][How to get started with machine learning algorithms in R]]
+- [[https://machinelearningmastery.com/get-your-hands-dirty-with-scikit-learn-now/][Machine learning algorithm recipes in scikit-learn]]
+- [[https://machinelearningmastery.com/how-to-run-your-first-classifier-in-weka/][How to run your first classifier in Weka]]
+
+** Data preparation process
+1. Select data
+2. Preprocess data
+3. Transform data
+
+
+
+*** Step 1: Select data
+
+Key question is considering what data we actually need to address the question or problem you are working on.
+
+*** Step 2: Preprocess data
+
+Three common data preprocessing steps include -
+- Formatting: might need to change the format (e.g., from relational to flat, etc.)
+- Cleaning: cleaning data is the removal or fixing of missing data.
+- Sampling: There might be more selected data than we actually need to work with.
+
+*** Step 3: Transform data
+
+Three common transformations include -
+- Scaling: the preprocessed data may contain attributes with mixtures of scales for various quantities such as dollars, kgs, and sales volume. Many machine learning methods need data attributes to have the same scale such as between 0 and 1 for the smallest and largest value for a given feature. Consider any feature scaling you need to perform.
+- Decomposition: We might have features that are more useful to a machine learning method when split into the constituent parts.
+- Aggregation: We may have features that can be aggregated into a single features that would be more meaningful to the problem we are trying to solve.
+
+
+** Imbalanced Samples
+   - [[https://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/][8 Tactics for dealing with imbalanced samples]]
+   - [[https://stackoverflow.com/questions/15065833/imbalance-in-scikit-learn][stackoverflow and imbalanced-learn library cousing of sklearn]]
+     - [[https://imbalanced-learn.org/stable/][imbalance website]]
+** Cross Validation
+
+[[https://stackabuse.com/cross-validation-and-grid-search-for-model-selection-in-python/][link 1]], [[https://scikit-learn.org/stable/modules/cross_validation.html][link2]]
+
+** Multiclass vs Multilabel
+   Definitions:
+    - Multi-Class: Mutually exclusive classes. Since we have mutually exclusive classes, all classifiers in scilkit-learn can
+      do multi-class classification out of the box [[https://scikit-learn.org/stable/modules/multiclass.html#multiclass-classification][link]].
+  - Multi-Labels: Set of target variables. An object can have multiple labels.
+    For example, comedy-drama movie labels.
+
+*** Multi-label algorithms
+1. Problem Transformation (main).
+2. Adapted Algorithm (scikit-multilearn).
+3. Ensemble Approaches (scikit-multilearn).
+****  Problem Transformation
+    - Binary (One classifier per target)
+        - ~MultiOutputClassifier~ scikit-learn seems to be doing this but you can pass any classifier (including ensemble).
+        - I am not sure if passing an ensemble classifier is equivalent to the adapted algorithms/ensemble methods of scikit-multilearn.
+        - [[https://scikit-learn.org/stable/modules/multiclass.html#multilabel-classification][link]]
+    - Classifier Chains
+    - Label Powerset (seems equivalent to multi-class).
+**** Adapted Algorithm
+  Adapts the machine learning algorithm (e.g., K-Nearest Neighbors) to directly perform multi-label classification.
+  See [[http://scikit.ml/api/skmultilearn.html][scikit-multilearn API]]
+**** Ensemble Approaches
+   Adaptations of ensemble methods.
+  See [[http://scikit.ml/api/skmultilearn.html][scikit-multilearn API]]
+*** Links
+- Older Packages: scikit-learn and scikit-multilearn [[https://www.analyticsvidhya.com/blog/2017/08/introduction-to-multi-label-classification/][link]]
+- Packages: scikit-learn [[https://scikit-learn.org/stable/modules/multiclass.html#multilabel-classification][link 1]] [[https://scikit-learn.org/stable/modules/generated/sklearn.multioutput.MultiOutputClassifier.html#sklearn.multioutput.MultiOutputClassifier][link 2]]
+-  Deep Learning: [[https://stackabuse.com/python-for-nlp-multi-label-text-classification-with-keras/][Keras]]
+
+
+* Natural Language Processing
+ 
+** Frameworks and Packages
+   - NLTK and Spacy
+   - Hugging face (Bert, transformers, pipelines) <-> PyTorch and Tensorflow implementations
+     - [[https://www.youtube.com/watch?v=GSt00_-0ncQ&t=291s][YT Video on basics]]
+     - [[https://huggingface.co/transformers/v1.2.0/index.html][PyTorch Hugging Face]]
+     - [[https://datascience.stackexchange.com/questions/73761/implementation-of-bert-using-tensorflow-vs-pytorch][stack exchange explanation]]
+   - RoBERTa  [[https://www.youtube.com/watch?v=DQc2Mi7BcuI][YT video]] and [[https://arxiv.org/abs/1907.11692][arxiv paper]]
+   - TextBlob
+   - Vader
+     - [[https://www.youtube.com/watch?v=qTyj2R-wcks][YT video for Vader and TextBlob]]
+  
+** Imbalanced Samples
+   - Augmentation and Over-sampling
+     [[https://www.youtube.com/watch?v=ubxfWPg2dJ0][Interesting YT video]]
+
+     Augmentation: create new observations from current observations.
+
+** Example: VADER Sentiment Analyzer
+ #+BEGIN_SRC elisp
+ (setq org-babel-python-command "/home/econ87/venvs/MLNLP/bin/python")
+ #+END_SRC
+
+ #+RESULTS:
+ : /home/econ87/venvs/MLNLP/bin/python
+
+ #+TITLE:Sentiment Analysis using VADER
+
+
+*** Introduction
+    Sentiment analysis detects polarity (e.g., positive, negative and neutral) within a piece of text.
+    Sentiment analysis aims to measure the attitude, sentiments, evaluations, attitudes, and emotions of a speaker/writer based on the computation treatment of subjectivity in a text.
+
+*** Why is Sentiment Analysis difficult to perform?
+    A text might contain multiple sentiments:
+    #+BEGIN_QUOTE
+    The acting was good, but the movie could have been better.
+    #+END_QUOTE
+
+*** VADER
+    VADER (Valence Aware Dictionary for Sentiment Reasoning) is a model used for text analysis that is sensitive to both polarity (positive/negative) and intensity (strength) of emotion.
+    It is available in the NLTK package and can be applied *directly to unlabeled text data*.
+
+    VADER sentimental analysis relies on a dictionary that maps lexical features to emotion intensities known as sentiment scores.
+    The sentiment score of a text can be obtained by summing up the intensity of each word in the text.
+
+    For example, words like /love/, /enjoy/, /happy/, /like/ all convey a positive sentiment.
+    Also, VADER is intelligent enough to understand the basic context of these words, such as /did not love/ as a negative sentiment.
+    It also understands the emphasis of capitalization and punctuation, such as /ENJOY/.
+  
+*** Polarity classification
+    We will not try to determine if a sentence is objective or subjective, fact or opinion.
+    Rather, we care if the text expresses a /positive/, /negative/, or /neutral/ opinion.
+  
+*** Document-level scope
+    We will also try to aggregate all of the sentences in a document or paragraph to arrive at an overall opinion.
+
+*** Coarse analysis
+    We will not try to perform a fine-grained analysis that would determine the degree of positive/negativity.
+    That is, we are not trying to guess how many stars a reviewer awarded, just whether it was positive or negative.
+  
+*** Broad Steps:
+    - First, consider the text being analyzed. A model trained on paragraph-long reviews might not be effective.
+    - 
+    - Broad Steps:
+      - First, consider the text being analyzed.
+        A model trained on paragraph-long reviews might not be effective.
+        Make sure to use an appropriate model for the task at hand.
+      - Next, decide the type of analysis to perform.
+        Some rudimentary sentiment analysis models go one step further, and consider two-word combinations, or /bigrams/.
+        We will be going to work on complete sentences, and for this we're going to import a trained NLTK lexicon called *VADER*.
+
+*** Datasets to use
+    We can use a variety of datasets like amazon reviews, movie reviews, or any other reviews for any product.
+
+
+  #+BEGIN_SRC python :session prep :results output
+     import ntlk
+     nltk.download('vader_lexicon')
+     from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
+     sid = SentimentIntensityAnalyzer()
+  #+END_SRC
+
+  VADER's ~SentimentIntensityAnalyzer()~ takes a string and returns a dictionary of scores in each of four categories:
+  - negative
+  - neutral
+  - positive
+  - compound (computed by normalizing the scores above).
+  -
+  #+BEGIN_SRC python :session prep :results output
+        a = 'This was a good movie.'
+      print(sid.polarity_scores(a))
+
+    a = 'This was the best, most awesome movie EVER MADE!!!'
+  print(sid.polarity_scores(a))
+  #+END_SRC
+
+*** Use VADER to analyze Reviews
+  
+  #+BEGIN_SRC python :session prep :results output
+    import numpy as np
+    import pandas as pd
+
+    df = pd.read_csv('./path/reviews.tsv', sep = '\t')
+    df.head()
+    df['label'].value_counts()
+  #+END_SRC
+
+*** Clean the data (optional)
+    Clean any blank spaces with the reviews.
+
+  #+BEGIN_SRC python :session prep :results output
+    df.dropna(inplace = True)
+
+    blanks = [] # start with an empty list
+
+    for i, lb, rv in df.itertuples():
+       if type(rv) == str:
+          if rv.isspace():
+             blanks.append(i)
+
+  df.drop(blanks, inplace = True)
+  #+END_SRC
+
+*** Adding Scores and Labels to the DataFrame
+    We will add columns to the original DataFrame to store polarity_score dictionaries, extracted compound scores, and new "pos/neg" labels derived from the compound score.
+    We will use this last column to perform an accuracy test.
+    The reviews in this method will be classified into negative, positive, and neutral ration.
+
+  #+BEGIN_SRC python :session prep :results output
+  df['scores'] = df['review'].apply(lambda review: sid.polarity_scores(review))
+
+  df.head()
+  #+END_SRC
+
+  Now call the compound as a separate column and all values greater than zeroes will be considered will be considered a positive review and all values less than zero would be considered as a negative review.
+
+  #+BEGIN_SRC python :session prep :results output
+  df['compound'] = df['review'].apply(lambda score_dict: score_dict['compound'])
+  df['comp_score'] = df['compound'].apply(lambda c: 'pos' if c >= 0 else 'neg')
+
+  df.head()
+  #+END_SRC
+
+
+  We now have a complete analysis of every review as either positive or negative.
+
+  Let's check some new reviews.
+
+  #+BEGIN_SRC python :session prep :results output
+      review = 'The shoes I bought were amazing.'
+      print(sid.polarity_scores(review))
+
+      review = 'The mobile phone I bough was the WORST and very BAD.'
+      print(sid.polarity_scores(review))
+  #+END_SRC
+
+   
+** Some links
+  
+ - [[https://towardsdatascience.com/sentimental-analysis-using-vader-a3415fef7664][towardsdatascience link]]
+ - [[https://python-bloggers.com/2020/10/how-to-run-sentiment-analysis-in-python-using-vader/][python bloggers]]
+ - [[https://github.com/tstewart161/Reddit_Sentiment_Trader/blob/main/main.py][reddit sentiment]]
+ - [[https://medium.com/ro-data-team-blog/nlp-how-does-nltk-vader-calculate-sentiment-6c32d0f5046b][medium]]
+ - [[https://www.nltk.org/howto/sentiment.html][nltk howto]]
+ - [[https://www.geeksforgeeks.org/python-sentiment-analysis-using-vader/][geeks for geeks]]

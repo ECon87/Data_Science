@@ -27,7 +27,7 @@ from seaborn.matrix import Grid
 from xgboost import XGBClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.feature_selection import SelectKBest
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.model_selection import cross_val_score, train_test_split, GridSearchCV
 from sklearn.metrics import confusion_matrix, accuracy_score, f1_score
 from statsmodels.multivariate.factor import Model
 from types import ModuleType
@@ -38,7 +38,7 @@ except ModuleNotFoundError:
     from Code.gen_features import gen_features
 
 # Directory
-DIR_MASTER = "/home/econ87/Documents/Learning/Data_Science/Kaggle/Competitions/Titanic/"
+DIR_MASTER = "/home/econ87/Documents/Learning/Data_Science/Kaggle_Competitions/Titanic/"
 DIR_DATA = f"{DIR_MASTER}/Data/"
 
 # Load train data
@@ -50,7 +50,7 @@ data = pd.read_csv(f"{DIR_DATA}/train.csv", engine="pyarrow")
 
 
 # train-test
-train_df, test_df = train_test_split(data, test_size=0.2)
+train_df, test_df = train_test_split(data, test_size=0.33)
 
 # Features
 train_df = gen_features(train_df)
@@ -84,12 +84,11 @@ features = [
 ]
 
 
-y_train = train_df["Survived"].values
 X_train = train_df[features].values
+y_train = train_df["Survived"].values
 
-
-y_test = test_df["Survived"].values
 X_test = test_df[features].values
+y_test = test_df["Survived"].values
 
 
 # ==================================================================
@@ -126,22 +125,57 @@ print(models)
 
 # ==================================================================
 # Optimize XGBoost model
-# - Best model: {'n_estimators': 50, learning_rate: '0.025'}
+# GridSearchCV: best model is learning 
+# - Best model: {'n_estimators': 25, learning_rate: '0.1'}
 
-parameters = {'n_estimators': [25, 50, 100, 150, 200],
+parameters = {'n_estimators': [10, 25, 50, 100, 150, 200],
               'learning_rate' : [0.025, 0.05, 0.075, 0.1],
-              'eval_metric': ['auc']}
+              # 'eval_metric': ['auc']
+              }
 clf = GridSearchCV(XGBClassifier(), parameters, cv = 5)
 clf.fit(X_train, y_train)
-print(clf.best_params_)
-# print(clf.score(X_train, y_train))
+clf.cv_results_.keys()
+len(clf.cv_results_['params'])
+clf.cv_results_['mean_test_score']
+clf.cv_results_['std_test_score']
+print(f'Best model according to GridSearchCV: {clf.best_params_}, {clf.best_score_}')
+
+for e, i in enumerate(clf.cv_results_['params']):
+    print(i['learning_rate'], i['n_estimators'],
+          round(clf.cv_results_['mean_test_score'][e], 3),
+          round(clf.cv_results_['std_test_score'][e], 3),
+          )
+
+# Generate predictions based on best_params_
 clf_preds = clf.best_estimator_.predict(X_test)
 print(accuracy_score(y_test, clf_preds))
 
 
-bst = XGBClassifier(n_estimators = 50,  learning_rate = 0.025)
-bst = XGBClassifier(n_estimators = 150,  learning_rate = 0.025)
-bst = XGBClassifier(n_estimators = 250,  learning_rate = 0.015)
+# Do cross validation between the model suggested by GridSearch and the one I
+# found to perform very well
+
+models = {
+        'model1': {'n_estimators': 50, 'learning_rate': 0.1},
+        'model2': {'n_estimators': 100, 'learning_rate': 0.1},
+        'model3': {'n_estimators': 150, 'learning_rate': 0.025},
+        }
+
+
+# Model 1 (GridSearchCV)
+clf_1 = cross_val_score(XGBClassifier(**models['model1']), X_train, y_train, cv = 10)
+
+# Model 2 (Own model)
+clf_2 = cross_val_score(XGBClassifier(**models['model2']), X_train, y_train, cv = 10)
+
+# Model 3 (Own model)
+clf_3 = cross_val_score(XGBClassifier(**models['model3']), X_train, y_train, cv = 10)
+
+print(f'Relative average score of the two models {clf_1.mean()/clf_2.mean()}')
+print(f'Relative std of the two models {clf_1.std()/clf_2.std()}')
+print(f'Relative average score of the two models {clf_1.mean()/clf_3.mean()}')
+print(f'Relative std of the two models {clf_1.std()/clf_3.std()}')
+
+bst = XGBClassifier(**models['model3'])
 bst.fit(X_train, y_train)
 preds = bst.predict(X_test)
 
@@ -149,12 +183,3 @@ print(confusion_matrix(y_test, preds))
 print(accuracy_score(y_test, preds))
 print(f1_score(y_test, preds))
 
-
-def myfun(x, y):
-    print(x)
-    print(y)
-
-
-pars = {'x': 1, 'y': 2}
-
-myfun(**pars)
