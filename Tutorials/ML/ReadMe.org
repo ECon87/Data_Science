@@ -29,8 +29,6 @@ The three main learning styles in machine learning algorithms
    Example problems: classification and regression.
    Example algorithms: extensions to other flexible models that make assumptions about how to model the unlabelled data.
    Hot topic in areas such as image classification where there are a large datasets with very few labeled examples.
-
-
 *** Algorithms Grouped by Similarity
 
 **** Regression Algorithms
@@ -165,24 +163,21 @@ Ensemble methdos are models composed of multiple *weaker models* that are indepe
 - Peformance measures
 - Optimzation algorithms
 
-* Further Reading on Machine Learning Algorithms
-
-**** Other lists of machine learning algorithms
+** Further Reading on Machine Learning Algorithms
+*** Other lists of machine learning algorithms
 
 - [[https://en.wikipedia.org/wiki/List_of_machine_learning_algorithms][Wikepdia list of machine learning algorithms]] - extensive but not useful presentation
 - [[https://en.wikipedia.org/wiki/Category:Machine_learning_algorithms][Wikipedia categorized list of machine learning algorithms]]
 - [[http://cran.r-project.org/web/views/MachineLearning.html][CRAN Task View: Machine Learning & Statistical Learning]] - list of all packages and supported algorithms
 - [[https://amzn.to/30U9Wlh][Top-10 Algorithms in Data Mining]]
-
-
-**** How to study machine learning algorithms
+*** How to study machine learning algorithms
 - [[https://machinelearningmastery.com/how-to-learn-a-machine-learning-algorithm/][How to Learn Any Machine Learning Algorithm]] - Systematic approach that helps to understand any algorithm using /algorithm decription templates/
 - [[https://machinelearningmastery.com/create-lists-of-machine-learning-algorithms/][How to create targeted lists of machine learning algorithms]] - help create own systematic lists of machine learning algorithms to jump start work on your next machine learning problem
 - [[https://machinelearningmastery.com/how-to-research-a-machine-learning-algorithm/][How to reseach a machine learning algorithms]] - systematic approach to research machine learning algorithms
 - [[https://machinelearningmastery.com/how-to-investigate-machine-learning-algorithm-behavior/][How to investigate machine learning algorithm behavior]] - a methodoliogy to understand how machine learning algorithms work by creating and executing very small studies into their behavior
 - [[https://machinelearningmastery.com/how-to-implement-a-machine-learning-algorithm/][How to implement a machine learning algorithm]] - A process and tips/tricks for implementing machine learning algorithms from scratch
 
-****  How to run machine learning algorithms
+***  How to run machine learning algorithms
 - [[https://machinelearningmastery.com/how-to-get-started-with-machine-learning-algorithms-in-r/][How to get started with machine learning algorithms in R]]
 - [[https://machinelearningmastery.com/get-your-hands-dirty-with-scikit-learn-now/][Machine learning algorithm recipes in scikit-learn]]
 - [[https://machinelearningmastery.com/how-to-run-your-first-classifier-in-weka/][How to run your first classifier in Weka]]

@@ -1,0 +1,117 @@
+#+TITLE: 17 Statistical Hypothesis Tests in Python
+
+[[https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/][Source]
+
+
+* Statistical test implementations in python
+** Normality tests
+   1. Shapiro-Wilk Test (~from scipy.states import shapiro~)
+      - Tests whether a data sample is consistent with Gaussian distribution.
+      - Assumptions:
+            1. IID observations.
+      - H0: Gaussian distribution v H1: Not a Gaussian distribution.
+   2. D'Agostino's $K^2$ Test (~from scipy.stats import normaltest~)
+      - Tests whether a data sample is consistent with Gaussian distribution.
+      - Assumptions:
+            1. IID observations.
+      - H0: Gaussian distribution v H1: Not a Gaussian distribution.
+   3. Anderson-Darling Test (~from scipy.stats import anderson~)
+      - Tests whether a data sample is consistent with Gaussian distribution.
+      - Assumptions:
+            1. IID observations.
+      - H0: Gaussian distribution v H1: Not a Gaussian distribution.
+** Correlation tests
+   1. Pearson's Correlation Coefficient (~from scipy.stats import pearsonr~)
+      - Tests whether two samples have a linear relationship.
+      - Assumptions:
+            1. Obs in each sample are iid.
+            2. Obs in each sample are normally distributed.
+            3. Obs in each sample have the same variance.
+      - H0: the two samples are independent v H1: there is a dependency between the samples
+   2. Spearman's Rank Correlation (~from scipy.stats import spearmanr~)
+      - Tests whether two samples have a monotonic relationship.
+      - Assumptions:
+            1. Obs in each sample are iid.
+            2. Obs in each sample can be ranked.
+      - H0: Gaussian distribution v H1: Not a Gaussian distribution.
+   3. Kendall's Rank Correlation (~from scipy.stats import kendalltau~)
+      - Tests whether two samples have a monotonic relationship.
+      - Assumptions:
+            1. Obs in each sample are iid.
+            2. Obs in each sample can be reanked.
+      - H0: Gaussian distribution v H1: Not a Gaussian distribution.
+   4. Chi-Squared Test (~from scipy.stats import chi2_contingency~)
+      - Tests whether two categorical variables are related or independent.
+      - Assumptions:
+            1. Obs used in the calculation of the contingency table are independent.
+            2. 25 or more examples in each cell of the contigency table.
+      - H0: Gaussian distribution v H1: Not a Gaussian distribution.
+** Stationarity tests
+   1. Augmented Dickey-Fuller Test (~from statsmodels.tsa.stattools import adfuller~)
+      - Tests whether a time series has a unit root.
+      - Assumptions:
+            1. Observations are temporally ordered
+      - H0: a unit root is present (non-stationary series) v H1: a unit root is not present (stationary series)
+   2. Kwiatkowski-Phillips-Schmidt-Shin (~from statsmodels.tsa.stattools import kpss~)
+      - Tests whther a time series is trend stationary or not.
+      - Assumptions:
+            1. Observations are temporally ordered
+      - H0: the timer series is trend-stationary v H1: the time series is not trend-stationary
+** Parametric Statsitical Hypothesis Tests
+   1. Student's t-test (~from scipy.stats import ttest_ind~)
+      - Tests whether the means of two independent samples are significantly different.
+      - Assumptions:
+        1. Obs in each sample are iid.
+        2. Obs in each sample are normally distributed.
+        3. Obs in each sample have the same variance.
+      - H0: the means of the samples are the equal v H1: the means of the samples are not equal.
+   2. Paired Student's t-test (~from scipy.stats import ttest_rel~)
+      - Tests whether the means of two paired samples are significantly different.
+      - Assumptions:
+        1. Obs in each sample are iid.
+        2. Obs in each sample are normally distributed.
+        3. Obs in each sample have the same variance.
+        4. Obs across each sample are paired
+      - H0: the means of the samples are equal v H1: the means of the samples are not equal.
+   3. ANOVA (~from scipy.stats import f_oneway~)
+      - Tests whether the means of two or more independent are significantly different.
+      - Assumptions:
+        1. Obs in each sample in iid.
+        2. Obs in each sample are normally distributed.
+        3. Obs in each sample have the same variance.
+      - H0: the means of the samples are equal v H1: one or more of the means are unequal.
+   4. Repeated Measures ANOVA Test (currently not supported in python)
+      - Tests whether the means of two or more paired samples are significantly different.
+      - Assumptions:
+        1. Obs in each sample are iid.
+        2. Obs in each sample are normally distributed.
+        3. Obs in each sample have the same variance.
+        4. Obs across each sample are paired
+      - H0: the means of the samples are equal v H1: the means of the samples are not equal.
+** Non-parametric Statsitical Hypothesis Tests
+   1. Mann-Whitney U Test (~from scipy.stats import mannwhitneyu~)
+      - Tests whether the distributions of two independent samples are equal or not.
+      - Assumptions:
+        1. Obs in each sample are iid.
+        2. Obs in each sample can be ranked.
+     - H0: the distributions of both samples are equal v H1: the distributions of both samples are not equal.
+   2. Wilcoxon Signed-Rank Test (~from scipy.stats import wilcoxon~)
+      - Tests whether the distributions of two paired samples are equal or not.
+      - Assumptions:
+        1. Obs in each sample are iid.
+        2. Obs in each sample can be ranked.
+        3. Obs across each sample are paired
+     - H0: the distributions of both samples are equal v H1: the distributions of both samples are not equal.
+   3. Kruskal-Wallis H Test (~from scipy.stats import kruskal~)
+      - Tests whether the distributions of two or more independent samples are equal or not.
+      - Assumptions:
+        1. Obs in each sample are iid.
+        2. Obs in each sample can be ranked.
+     - H0: the distributions of all samples are equal v H1: the distributions of one or more samples are not equal.
+   4. Friedman Test (~from scipy.stats import friedmanchisquare~)
+      - Tests whether the distributions of two or more paired samples are equal or not.
+      - Assumptions:
+        1. Obs in each sample are iid.
+        2. Obs in each sample can be ranked.
+        3. Obs across each sample are paired
+     - H0: the distributions of all samples are equal v H1: the distributions of one ore more samples are not equal.
