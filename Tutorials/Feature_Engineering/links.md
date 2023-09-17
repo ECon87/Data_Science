@@ -13,5 +13,12 @@
         - Manual feature engineering
         - Automated feature engineering - see `featuretools`
 4. [Machine learning mastery article on RCE and PCA]( https://machinelearningmastery.com/feature-selection-machine-learning-python/)
+5. [Intro guide to EDA](https://towardsdatascience.com/a-data-scientists-essential-guide-to-exploratory-data-analysis-25637eee0cf6)
+    - 3 steps of EDA
+        1. Dataset Overview and Descriptive Statistics
+        2. Feature Assessment and Visualization
+        3. Data Quality Evaluation
+    - `ydata-profiling` automates a lot of these steps; especially, step 3 which gives you a report of strongly correlated features, and features with missing data, and it is really good at analyzing 
+    - Data augmentation is a solution for underrepresented classes in a feature.
 # Questions
 1. Can we use cross-validation in feature engineering and feature selection?
