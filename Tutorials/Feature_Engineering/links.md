@@ -12,6 +12,7 @@
     - Feature Engineering:
         - Manual feature engineering
         - Automated feature engineering - see `featuretools`
+4. [Feature selection with sklearn and pandas](https://towardsdatascience.com/feature-selection-with-pandas-e3690ad8504b)
 4. [Machine learning mastery article on RCE and PCA]( https://machinelearningmastery.com/feature-selection-machine-learning-python/)
 5. [Intro guide to EDA](https://towardsdatascience.com/a-data-scientists-essential-guide-to-exploratory-data-analysis-25637eee0cf6)
     - 3 steps of EDA
