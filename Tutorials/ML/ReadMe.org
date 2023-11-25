@@ -1,7 +1,8 @@
 #+TITLE: Notes on Machine Learning and Natural Language Processing
 
+
 * Machine Learning
-** A tour of machine learning algorithms
+** Machine learning algorithms
 [[https://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/][Source: Machine Learning Mastery]]
 
 Two ways to think and categorized the algorithms you may come across in the field:
@@ -29,6 +30,7 @@ The three main learning styles in machine learning algorithms
    Example problems: classification and regression.
    Example algorithms: extensions to other flexible models that make assumptions about how to model the unlabelled data.
    Hot topic in areas such as image classification where there are a large datasets with very few labeled examples.
+
 *** Algorithms Grouped by Similarity
 
 **** Regression Algorithms
@@ -163,30 +165,139 @@ Ensemble methdos are models composed of multiple *weaker models* that are indepe
 - Peformance measures
 - Optimzation algorithms
 
-** Further Reading on Machine Learning Algorithms
-*** Other lists of machine learning algorithms
+**** Further Reading on Machine Learning Algorithms
+**** Other lists of machine learning algorithms
+ - [[https://en.wikipedia.org/wiki/List_of_machine_learning_algorithms][Wikepdia list of machine learning algorithms]] - extensive but not useful presentation
+ - [[https://en.wikipedia.org/wiki/Category:Machine_learning_algorithms][Wikipedia categorized list of machine learning algorithms]]
+ - [[http://cran.r-project.org/web/views/MachineLearning.html][CRAN Task View: Machine Learning & Statistical Learning]] - list of all packages and supported algorithms
+ - [[https://amzn.to/30U9Wlh][Top-10 Algorithms in Data Mining]]
 
-- [[https://en.wikipedia.org/wiki/List_of_machine_learning_algorithms][Wikepdia list of machine learning algorithms]] - extensive but not useful presentation
-- [[https://en.wikipedia.org/wiki/Category:Machine_learning_algorithms][Wikipedia categorized list of machine learning algorithms]]
-- [[http://cran.r-project.org/web/views/MachineLearning.html][CRAN Task View: Machine Learning & Statistical Learning]] - list of all packages and supported algorithms
-- [[https://amzn.to/30U9Wlh][Top-10 Algorithms in Data Mining]]
 *** How to study machine learning algorithms
-- [[https://machinelearningmastery.com/how-to-learn-a-machine-learning-algorithm/][How to Learn Any Machine Learning Algorithm]] - Systematic approach that helps to understand any algorithm using /algorithm decription templates/
-- [[https://machinelearningmastery.com/create-lists-of-machine-learning-algorithms/][How to create targeted lists of machine learning algorithms]] - help create own systematic lists of machine learning algorithms to jump start work on your next machine learning problem
-- [[https://machinelearningmastery.com/how-to-research-a-machine-learning-algorithm/][How to reseach a machine learning algorithms]] - systematic approach to research machine learning algorithms
-- [[https://machinelearningmastery.com/how-to-investigate-machine-learning-algorithm-behavior/][How to investigate machine learning algorithm behavior]] - a methodoliogy to understand how machine learning algorithms work by creating and executing very small studies into their behavior
-- [[https://machinelearningmastery.com/how-to-implement-a-machine-learning-algorithm/][How to implement a machine learning algorithm]] - A process and tips/tricks for implementing machine learning algorithms from scratch
+    - [[https://machinelearningmastery.com/how-to-learn-a-machine-learning-algorithm/][How to Learn Any Machine Learning Algorithm]] - Systematic approach that helps to understand any algorithm using /algorithm decription templates/
+    - [[https://machinelearningmastery.com/create-lists-of-machine-learning-algorithms/][How to create targeted lists of machine learning algorithms]] - help create own systematic lists of machine learning algorithms to jump start work on your next machine learning problem
+    - [[https://machinelearningmastery.com/how-to-research-a-machine-learning-algorithm/][How to reseach a machine learning algorithms]] - systematic approach to research machine learning algorithms
+    - [[https://machinelearningmastery.com/how-to-investigate-machine-learning-algorithm-behavior/][How to investigate machine learning algorithm behavior]] - a methodoliogy to understand how machine learning algorithms work by creating and executing very small studies into their behavior
+    - [[https://machinelearningmastery.com/how-to-implement-a-machine-learning-algorithm/][How to implement a machine learning algorithm]] - A process and tips/tricks for implementing machine learning algorithms from scratch
 
-***  How to run machine learning algorithms
-- [[https://machinelearningmastery.com/how-to-get-started-with-machine-learning-algorithms-in-r/][How to get started with machine learning algorithms in R]]
-- [[https://machinelearningmastery.com/get-your-hands-dirty-with-scikit-learn-now/][Machine learning algorithm recipes in scikit-learn]]
-- [[https://machinelearningmastery.com/how-to-run-your-first-classifier-in-weka/][How to run your first classifier in Weka]]
+****  How to run machine learning algorithms
+ - [[https://machinelearningmastery.com/how-to-get-started-with-machine-learning-algorithms-in-r/][How to get started with machine learning algorithms in R]]
+ - [[https://machinelearningmastery.com/get-your-hands-dirty-with-scikit-learn-now/][Machine learning algorithm recipes in scikit-learn]]
+ - [[https://machinelearningmastery.com/how-to-run-your-first-classifier-in-weka/][How to run your first classifier in Weka]]
+ 
+** Types of learning
+  [[https://machinelearningmastery.com/types-of-learning-in-machine-learning/][Source Machine Learning Mastery]] 
+  The focus of the field of machine learning is "learning", and there are different types.
+  Some types of learning describe whole subfields of study comprised of many different types of algorithms such as supervised learning.
+  Other describe powerful techniques that you can use on your projects, such as transfer learning.
 
+   1. Learning Problems
+      a. Supervised learning:
+        Class of problems that involves using a model to learn a mapping between input examples and the target variable.
+        Models are fit on training data comprised of inputs and outputs and used to make predictions on test sets where only the inputs are provided and the outputs from the model are compared to the withheld target variables and are used to estimate the skill of the model.
+        Two main types of problems:
+        1. Classification - involve predicting a class label
+        2. Regressions - involve predicting a numerical label
+        Algorithms are referred to as "supervised" because they learn by making predictions given examples of input data, and the models are supervised and corrected via an algorithm to better predict the expected target outputs in the training dataset.
+      b. Unsupervised learning: 
+        Class of problems that involve using a model to describe or extract relationships in data.
+        It operates only the input data without outputs or target variables. Therefore, unsupervised learning does not have a teacher correcting the model, as in the case of supervised learning.
+        Two main problems:
+        1. Clustering - involves finding groups in data (e.g., K-Means where k refers to the number of clusters to discover in the data)
+        2. Density estimation - involves summarizing the distribution of data (e.g., Kernel Density Estimation which uses small groups of closely related data samples to estimate the distribution for new points in the problem space)
+        Other unsupervised methods:
+        1. Visualization - involve creating plots of data (e.g., scatter plot for each pair of variables in the dataset)
+        2. Projection - involve creating lower-dimensional representations of data (e.g., principal component analysis that involves summarizing a dataset in terms of eigenvalues and eigenvectors with linear dependencies)
+      c. Reinforcement learning:
+        Class of problems where an agent operates in an environment and must learn to operate using feedback.
+   2. Hybrid Learning Problems
+      d. Semi-supervised learning
+      e. Self-supervised learning
+      f. Multi-instance learning
+   3. Statistical inference
+      g. Inductive learning
+      h. Deductive learning
+      i. Transductive learning
+   4. Learning Techniques
+      j. Multi-task learning
+      k. Active learning
+      l. Online learning
+      m. Transfer learning
+      n. Ensemble learning
+
+** 14 Types of learning
+  [[https://machinelearningmastery.com/types-of-learning-in-machine-learning/][Source Machine Learning Mastery]] 
+  The focus of the field of machine learning is "learning", and there are different types.
+  Some types of learning describe whole subfields of study comprised of many different types of algorithms such as supervised learning.
+  Other describe powerful techniques that you can use on your projects, such as transfer learning.
+
+*** Learning Problems
+  
+**** Learning Problems
+
+***** Supervised learning:
+
+        Class of problems that involves using a model to learn a mapping between input examples and the target variable.
+        Models are fit on training data comprised of inputs and outputs and used to make predictions on test sets where only the inputs are provided and the outputs from the model are compared to the withheld target variables and are used to estimate the skill of the model.
+        Two main types of problems:
+        1. Classification - involve predicting a class label
+        2. Regressions - involve predicting a numerical label
+        Algorithms are referred to as "supervised" because they learn by making predictions given examples of input data, and the models are supervised and corrected via an algorithm to better predict the expected target outputs in the training dataset.
+
+***** Unsupervised learning: 
+
+        Class of problems that involve using a model to describe or extract relationships in data.
+        It operates only the input data without outputs or target variables. Therefore, unsupervised learning does not have a teacher correcting the model, as in the case of supervised learning.
+        Two main problems:
+        1. Clustering - involves finding groups in data (e.g., K-Means where k refers to the number of clusters to discover in the data)
+        2. Density estimation - involves summarizing the distribution of data (e.g., Kernel Density Estimation which uses small groups of closely related data samples to estimate the distribution for new points in the problem space)
+        Other unsupervised methods:
+        1. Visualization - involve creating plots of data (e.g., scatter plot for each pair of variables in the dataset)
+        2. Projection - involve creating lower-dimensional representations of data (e.g., principal component analysis that involves summarizing a dataset in terms of eigenvalues and eigenvectors with linear dependencies)
+
+***** Reinforcement learning:
+
+        Class of problems where an agent operates in an environment and must learn to operate using feedback.
+        There is no fixed training dataset, rather a goal or set of goals than an agent is required to achieve, actions they may perform, and feedback about performance toward the goal.
+        It is similar to supervised learning in that the model has some response from which to learn, although the feedback may be delayed and statistically noisy, making it challenging for the agent or model to connect cause and effect.
+
+**** Hybrid Learning Problems
+
+     Hybrid learning problems draw from both supervised and unsupervised learning.
+
+***** Semi-supervised learning
+
+      Semi-supervised learning is a supervised learning method where the training data contains very few labeled examples and a large number of unlabeled examples.
+      The goal is to make effective use of all the available data, not just the labeled data like in supervised learning.
+
+***** Self-supervised learning
+
+***** Multi-instance learning
+
+**** Statistical inference
+
+***** Inductive learning
+
+***** Deductive learning
+
+***** Transductive learning
+
+**** Learning Techniques
+
+***** Multi-task learning
+
+***** Active learning
+
+***** Online learning
+
+***** Transfer learning
+
+***** Ensemble learning
+  
 ** Data preparation process
+
 1. Select data
 2. Preprocess data
 3. Transform data
-
 
 
 *** Step 1: Select data
@@ -209,9 +320,13 @@ Three common transformations include -
 
 
 ** Imbalanced Samples
-   - [[https://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/][8 Tactics for dealing with imbalanced samples]]
-   - [[https://stackoverflow.com/questions/15065833/imbalance-in-scikit-learn][stackoverflow and imbalanced-learn library cousing of sklearn]]
-     - [[https://imbalanced-learn.org/stable/][imbalance website]]
+Augmentation and Over-sampling: [[https://www.youtube.com/watch?v=ubxfWPg2dJ0][Interesting YT video]]
+- Augmentation: create new observations from current observations.
+
+*** Links
+
+[[https://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/][8 Tactics for dealing with imbalanced samples]], [[https://stackoverflow.com/questions/15065833/imbalance-in-scikit-learn][stackoverflow and imbalanced-learn library cousing of sklearn]], [[https://imbalanced-learn.org/stable/][imbalance website]]
+
 ** Cross Validation
 
 [[https://stackabuse.com/cross-validation-and-grid-search-for-model-selection-in-python/][link 1]], [[https://scikit-learn.org/stable/modules/cross_validation.html][link2]]
@@ -246,7 +361,22 @@ Three common transformations include -
 -  Deep Learning: [[https://stackabuse.com/python-for-nlp-multi-label-text-classification-with-keras/][Keras]]
 
 
+** Batch vs Epoch
+   [[https://machinelearningmastery.com/difference-between-a-batch-and-an-epoch/][Difference between a batch and an epoch in a neural network]]
+
+   Batch size and number of epochs are two hyperparameters for stochastic gradient descent learning algorithm. Stochastic gradient descent is an iterative learning algorithm tat uses a training dataset to update a model.
+   The batch size is a hyperparameter of gradient descent that controls the numver of traning samples (i.e., rows, observations) to work through before the model's internal parameters (i.e., "endogenous") are updated.
+   The number of epochs is a hyperparameter of gradient descent that contols the number of complete passes  through the training dataset
+
+   Example: Assume we have a dataset with 200 samples (rows of data) and we choose a batch size of 5 and 1,000 epochs. This means the dataset has 40 batches of 5 samples and thus the model weights will be updated after each batch of five samples.
+   This also means that one epoch will involve 40 batches or 40 updates to the model.
+   With 1,000 epochs, the model will be exposed to or pass through the whole dataset 1,000 times for a total of 40k bathes during the entire training process.
+
+
+
 * Natural Language Processing
+
+** What is NLP
  
 ** Frameworks and Packages
    - NLTK and Spacy
@@ -259,34 +389,21 @@ Three common transformations include -
    - Vader
      - [[https://www.youtube.com/watch?v=qTyj2R-wcks][YT video for Vader and TextBlob]]
   
-** Imbalanced Samples
-   - Augmentation and Over-sampling
-     [[https://www.youtube.com/watch?v=ubxfWPg2dJ0][Interesting YT video]]
 
-     Augmentation: create new observations from current observations.
-
-** Example: VADER Sentiment Analyzer
- #+BEGIN_SRC elisp
- (setq org-babel-python-command "/home/econ87/venvs/MLNLP/bin/python")
- #+END_SRC
-
- #+RESULTS:
- : /home/econ87/venvs/MLNLP/bin/python
-
- #+TITLE:Sentiment Analysis using VADER
-
+** Sentiment analysis: A brief intro using the VADER Sentiment Analyzer
 
 *** Introduction
-    Sentiment analysis detects polarity (e.g., positive, negative and neutral) within a piece of text.
-    Sentiment analysis aims to measure the attitude, sentiments, evaluations, attitudes, and emotions of a speaker/writer based on the computation treatment of subjectivity in a text.
-
-*** Why is Sentiment Analysis difficult to perform?
-    A text might contain multiple sentiments:
-    #+BEGIN_QUOTE
-    The acting was good, but the movie could have been better.
-    #+END_QUOTE
-
-*** VADER
+**** What is sentiment analysis?
+      Sentiment analysis detects polarity (e.g., positive, negative and neutral) within a piece of text.
+      Sentiment analysis aims to measure the attitude, sentiments, evaluations, attitudes, and emotions of a speaker/writer based on the computation treatment of subjectivity in a text.
+  
+**** Why is Sentiment Analysis difficult to perform?
+     A text might contain multiple sentiments:
+     #+BEGIN_QUOTE
+     The acting was good, but the movie could have been better.
+     #+END_QUOTE
+ 
+*** VADER Sentiment analyzer
     VADER (Valence Aware Dictionary for Sentiment Reasoning) is a model used for text analysis that is sensitive to both polarity (positive/negative) and intensity (strength) of emotion.
     It is available in the NLTK package and can be applied *directly to unlabeled text data*.
 
@@ -297,116 +414,119 @@ Three common transformations include -
     Also, VADER is intelligent enough to understand the basic context of these words, such as /did not love/ as a negative sentiment.
     It also understands the emphasis of capitalization and punctuation, such as /ENJOY/.
   
-*** Polarity classification
-    We will not try to determine if a sentence is objective or subjective, fact or opinion.
-    Rather, we care if the text expresses a /positive/, /negative/, or /neutral/ opinion.
-  
-*** Document-level scope
-    We will also try to aggregate all of the sentences in a document or paragraph to arrive at an overall opinion.
+*** Worked example
+**** Polarity classification
 
-*** Coarse analysis
-    We will not try to perform a fine-grained analysis that would determine the degree of positive/negativity.
-    That is, we are not trying to guess how many stars a reviewer awarded, just whether it was positive or negative.
-  
-*** Broad Steps:
-    - First, consider the text being analyzed. A model trained on paragraph-long reviews might not be effective.
-    - 
-    - Broad Steps:
-      - First, consider the text being analyzed.
-        A model trained on paragraph-long reviews might not be effective.
-        Make sure to use an appropriate model for the task at hand.
-      - Next, decide the type of analysis to perform.
-        Some rudimentary sentiment analysis models go one step further, and consider two-word combinations, or /bigrams/.
-        We will be going to work on complete sentences, and for this we're going to import a trained NLTK lexicon called *VADER*.
-
-*** Datasets to use
-    We can use a variety of datasets like amazon reviews, movie reviews, or any other reviews for any product.
-
-
-  #+BEGIN_SRC python :session prep :results output
-     import ntlk
-     nltk.download('vader_lexicon')
-     from nltk.sentiment.vader import SentimentIntensityAnalyzer
-
-     sid = SentimentIntensityAnalyzer()
-  #+END_SRC
-
-  VADER's ~SentimentIntensityAnalyzer()~ takes a string and returns a dictionary of scores in each of four categories:
-  - negative
-  - neutral
-  - positive
-  - compound (computed by normalizing the scores above).
-  -
-  #+BEGIN_SRC python :session prep :results output
-        a = 'This was a good movie.'
-      print(sid.polarity_scores(a))
-
-    a = 'This was the best, most awesome movie EVER MADE!!!'
-  print(sid.polarity_scores(a))
-  #+END_SRC
-
-*** Use VADER to analyze Reviews
-  
-  #+BEGIN_SRC python :session prep :results output
-    import numpy as np
-    import pandas as pd
-
-    df = pd.read_csv('./path/reviews.tsv', sep = '\t')
-    df.head()
-    df['label'].value_counts()
-  #+END_SRC
-
-*** Clean the data (optional)
-    Clean any blank spaces with the reviews.
-
-  #+BEGIN_SRC python :session prep :results output
-    df.dropna(inplace = True)
-
-    blanks = [] # start with an empty list
-
-    for i, lb, rv in df.itertuples():
-       if type(rv) == str:
-          if rv.isspace():
-             blanks.append(i)
-
-  df.drop(blanks, inplace = True)
-  #+END_SRC
-
-*** Adding Scores and Labels to the DataFrame
-    We will add columns to the original DataFrame to store polarity_score dictionaries, extracted compound scores, and new "pos/neg" labels derived from the compound score.
-    We will use this last column to perform an accuracy test.
-    The reviews in this method will be classified into negative, positive, and neutral ration.
-
-  #+BEGIN_SRC python :session prep :results output
-  df['scores'] = df['review'].apply(lambda review: sid.polarity_scores(review))
-
-  df.head()
-  #+END_SRC
-
-  Now call the compound as a separate column and all values greater than zeroes will be considered will be considered a positive review and all values less than zero would be considered as a negative review.
-
-  #+BEGIN_SRC python :session prep :results output
-  df['compound'] = df['review'].apply(lambda score_dict: score_dict['compound'])
-  df['comp_score'] = df['compound'].apply(lambda c: 'pos' if c >= 0 else 'neg')
-
-  df.head()
-  #+END_SRC
-
-
-  We now have a complete analysis of every review as either positive or negative.
-
-  Let's check some new reviews.
-
-  #+BEGIN_SRC python :session prep :results output
-      review = 'The shoes I bought were amazing.'
-      print(sid.polarity_scores(review))
-
-      review = 'The mobile phone I bough was the WORST and very BAD.'
-      print(sid.polarity_scores(review))
-  #+END_SRC
-
+     We will not try to determine if a sentence is objective or subjective, fact or opinion.
+     Rather, we care if the text expresses a /positive/, /negative/, or /neutral/ opinion.
    
-** Some links
+**** Document-level scope
+     We will also try to aggregate all of the sentences in a document or paragraph to arrive at an overall opinion.
+ 
+**** Coarse analysis
+     We will not try to perform a fine-grained analysis that would determine the degree of positive/negativity.
+     That is, we are not trying to guess how many stars a reviewer awarded, just whether it was positive or negative.
+   
+**** Broad Steps:
+     - First, consider the text being analyzed. A model trained on paragraph-long reviews might not be effective.
+     - 
+     - Broad Steps:
+       - First, consider the text being analyzed.
+         A model trained on paragraph-long reviews might not be effective.
+         Make sure to use an appropriate model for the task at hand.
+       - Next, decide the type of analysis to perform.
+         Some rudimentary sentiment analysis models go one step further, and consider two-word combinations, or /bigrams/.
+         We will be going to work on complete sentences, and for this we're going to import a trained NLTK lexicon called *VADER*.
+ 
+**** Datasets to use
+     We can use a variety of datasets like amazon reviews, movie reviews, or any other reviews for any product.
+ 
+ 
+   #+BEGIN_SRC python :session prep :results output
+      import ntlk
+      nltk.download('vader_lexicon')
+      from nltk.sentiment.vader import SentimentIntensityAnalyzer
+ 
+      sid = SentimentIntensityAnalyzer()
+   #+END_SRC
+ 
+   VADER's ~SentimentIntensityAnalyzer()~ takes a string and returns a dictionary of scores in each of four categories:
+   - negative
+   - neutral
+   - positive
+   - compound (computed by normalizing the scores above).
+   -
+   #+BEGIN_SRC python :session prep :results output
+         a = 'This was a good movie.'
+       print(sid.polarity_scores(a))
+ 
+     a = 'This was the best, most awesome movie EVER MADE!!!'
+   print(sid.polarity_scores(a))
+   #+END_SRC
+ 
+**** Use VADER to analyze Reviews
+   
+   #+BEGIN_SRC python :session prep :results output
+     import numpy as np
+     import pandas as pd
+ 
+     df = pd.read_csv('./path/reviews.tsv', sep = '\t')
+     df.head()
+     df['label'].value_counts()
+   #+END_SRC
+ 
+**** Clean the data (optional)
+     Clean any blank spaces with the reviews.
+ 
+   #+BEGIN_SRC python :session prep :results output
+     df.dropna(inplace = True)
+ 
+     blanks = [] # start with an empty list
+ 
+     for i, lb, rv in df.itertuples():
+        if type(rv) == str:
+           if rv.isspace():
+              blanks.append(i)
+ 
+   df.drop(blanks, inplace = True)
+   #+END_SRC
+ 
+**** Adding Scores and Labels to the DataFrame
+
+     We will add columns to the original DataFrame to store polarity_score dictionaries, extracted compound scores, and new "pos/neg" labels derived from the compound score.
+     We will use this last column to perform an accuracy test.
+     The reviews in this method will be classified into negative, positive, and neutral ration.
+ 
+   #+BEGIN_SRC python :session prep :results output
+   df['scores'] = df['review'].apply(lambda review: sid.polarity_scores(review))
+ 
+   df.head()
+   #+END_SRC
+ 
+   Now call the compound as a separate column and all values greater than zeroes will be considered will be considered a positive review and all values less than zero would be considered as a negative review.
+ 
+   #+BEGIN_SRC python :session prep :results output
+   df['compound'] = df['review'].apply(lambda score_dict: score_dict['compound'])
+   df['comp_score'] = df['compound'].apply(lambda c: 'pos' if c >= 0 else 'neg')
+ 
+   df.head()
+   #+END_SRC
+ 
+ 
+   We now have a complete analysis of every review as either positive or negative.
+ 
+   Let's check some new reviews.
+ 
+   #+BEGIN_SRC python :session prep :results output
+       review = 'The shoes I bought were amazing.'
+       print(sid.polarity_scores(review))
+ 
+       review = 'The mobile phone I bough was the WORST and very BAD.'
+       print(sid.polarity_scores(review))
+   #+END_SRC
+ 
+    
+** Useful links
   
  - [[https://towardsdatascience.com/sentimental-analysis-using-vader-a3415fef7664][towardsdatascience link]]
  - [[https://python-bloggers.com/2020/10/how-to-run-sentiment-analysis-in-python-using-vader/][python bloggers]]
